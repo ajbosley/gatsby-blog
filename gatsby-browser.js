@@ -1,0 +1,11 @@
+// custom typefaces
+import "typeface-montserrat"
+import "typeface-merriweather"
+import "./src/css/index.css"
+import "./src/css/font-awesome.min.css"
+import "./src/css/fontawesome-webfont.eot"
+import "./src/css/fontawesome-webfont.svg"
+import "./src/css/fontawesome-webfont.ttf"
+import "./src/css/fontawesome-webfont.woff"
+import "./src/css/fontawesome-webfont.woff2"
+import "./src/css/FontAwesome.otf"
