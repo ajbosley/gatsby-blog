@@ -20,11 +20,6 @@
         "path": "/blog/"
     },
     {
-        "componentChunkName": "component---cache-dev-404-page-js",
-        "jsonName": "dev-404-page-5f9",
-        "path": "/dev-404-page/"
-    },
-    {
         "componentChunkName": "component---src-templates-blog-post-js",
         "jsonName": "hello-world-8bc",
         "path": "/hello-world/"
@@ -38,6 +33,11 @@
         "componentChunkName": "component---src-templates-blog-post-js",
         "jsonName": "my-second-post-2aa",
         "path": "/my-second-post/"
+    },
+    {
+        "componentChunkName": "component---node-modules-gatsby-plugin-offline-app-shell-js",
+        "jsonName": "offline-plugin-app-shell-fallback-a30",
+        "path": "/offline-plugin-app-shell-fallback/"
     },
     {
         "componentChunkName": "component---src-pages-resume-js",
