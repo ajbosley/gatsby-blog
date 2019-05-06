@@ -9,6 +9,11 @@ const css3 = require('../../content/assets/css3.svg');
 const aws = require('../../content/assets/aws.svg');
 const gatsby = require('../../content/assets/gatsby.svg');
 const html5 = require('../../content/assets/html5.svg');
+const lb = require('../../content/assets/loopback.svg');
+const bluemix = require('../../content/assets/bluemix.svg');
+const sentry = require('../../content/assets/sentry.svg');
+const material = require('../../content/assets/material.svg');
+const mapbox = require('../../content/assets/mapbox.svg');
 
 export default class CodeImages extends Component {
     render() {
@@ -43,6 +48,21 @@ export default class CodeImages extends Component {
                 </div>
                 <div className="code-image">
                     <img src={aws} alt="aws icon" />
+                </div>
+                <div className="code-image">
+                    <img src={lb} alt="loopback icon" />
+                </div>
+                <div className="code-image">
+                    <img src={sentry} alt="Sentry.io icon" />
+                </div>
+                <div className="code-image">
+                    <img src={bluemix} alt="IBM bluemix icon" />
+                </div>
+                <div className="code-image">
+                    <img src={mapbox} alt="Mapbox icon" />
+                </div>
+                <div className="code-image">
+                    <img src={material} alt="Material icon" />
                 </div>
             </div>
         )

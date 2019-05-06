@@ -10,6 +10,10 @@
     --light-gy: #fafafa;
 }
 
+ul li {
+    padding: 4px;
+}
+
 blockquote {
     font-style: italic;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -245,7 +249,7 @@ body {
 }
 
 .code-image img {
-    width: 50px;
+    width: 50px !important;
     margin: 5px;
 }
 
@@ -258,7 +262,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 200px;
+    max-width: 400px;
 }
 
 .blog-title {
@@ -333,6 +337,24 @@ body {
     overflow: hidden;
 }
 
+.resume-container {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-content {
+    width: 80%
+}
+
+.resume-title {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
 @media only screen and (min-width: 768px) {
     .bio-container {
         display: flex;
@@ -340,7 +362,7 @@ body {
         justify-content: space-evenly;
         align-items: center;
         padding: 10px 25px 10px 25px;
-        margin-top: 120px;
+        margin-top: 60px;
     }
 
     .small-screen {

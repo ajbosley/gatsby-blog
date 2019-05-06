@@ -29,6 +29,18 @@ module.exports = {
     },
   },
   {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Aaron Bosley`,
+      short_name: `A.Bosley`,
+      start_url: `/`,
+      background_color: `#bdbdbd`,
+      theme_color: `#ab47bc`,
+      display: `standalone`,
+      icon: `static/download.png`
+    },
+  },
+  {
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [{
@@ -54,7 +66,7 @@ module.exports = {
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      //trackingId: `ADD YOUR TRACKING ID HERE`,
+      trackingId: "UA-120520318-1"
     },
   },
     `gatsby-plugin-feed`,
