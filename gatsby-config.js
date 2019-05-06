@@ -10,7 +10,7 @@ module.exports = {
     resolve: `gatsby-plugin-s3`,
     options: {
       bucketName: "ajbosley-gatsby",
-      protocol: "http",
+      protocol: "https",
       hostname: `www.ajbosley.co.uk`,
     },
   },
