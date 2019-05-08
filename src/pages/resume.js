@@ -84,7 +84,7 @@ class Resume extends React.Component {
             </ul>
           </div>
         </div>
-        <h2 style={{ textAlign: "center" }}>Stuff I've worked with</h2>
+        <h2 style={{ textAlign: "center" }}>Some of the technologies I've worked with</h2>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
           <CodeImages className="small-screen" />
         </div>
