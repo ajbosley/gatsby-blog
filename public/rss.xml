@@ -1,53 +1,96 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Aaron Bosley]]></title><description><![CDATA[My life as an outdoorsy developer, blogged.]]></description><link>https://ajbosley.co.uk</link><generator>RSS for Node</generator><lastBuildDate>Mon, 06 May 2019 17:12:05 GMT</lastBuildDate><item><title><![CDATA[Test]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://ajbosley.co.uk/test/</link><guid isPermaLink="false">https://ajbosley.co.uk/test/</guid><pubDate>Mon, 01 May 2017 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
-&lt;p&gt;I’m sure I’ll write a lot more interesting things in the future.&lt;/p&gt;
-&lt;p&gt;Oh, and here’s a great quote from this Wikipedia on
-&lt;a href=&quot;http://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;salted duck eggs&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Aaron Bosley]]></title><description><![CDATA[My life as an outdoorsy developer, blogged.]]></description><link>https://ajbosley.co.uk</link><generator>RSS for Node</generator><lastBuildDate>Wed, 08 May 2019 20:57:22 GMT</lastBuildDate><item><title><![CDATA[TrainingWall - Authentication and Authorization]]></title><description><![CDATA[After reading this far in the series, I haven’t told you what my app is actually meant to do. Well, lets not spoil everything in one go! The…]]></description><link>https://ajbosley.co.uk/trainingwall-authentication-and-authorization/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall-authentication-and-authorization/</guid><pubDate>Wed, 08 May 2019 20:40:00 GMT</pubDate><content:encoded>&lt;h2&gt;After reading this far in the series, I haven’t told you what my app is actually meant to do. Well, lets not spoil everything in one go!&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;TrainingWall&lt;/strong&gt; app covers, in its current form, one main use case. Creating routes on rock climbing training boards irrespective of board shape, size and design. If you can photograph it, you can create routes for it.&lt;/p&gt;
+&lt;p&gt;A climbing center can have many boards, each board can have many routes. Routes are created by users, anonymous or registered.&lt;/p&gt;
+&lt;p&gt;This design leads way for three different types of user:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Anonymous - &lt;em&gt;Under 16’s for GDPR compliance, no data stored on user&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Registered&lt;/li&gt;
+&lt;li&gt;Center staff&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;What’s the difference between authentication and authorization?&lt;/h3&gt;
+&lt;p&gt;Authentication is proving you are who you say you are.&lt;/p&gt;
+&lt;p&gt;Authorization is checking whether you have permission to perform an action, more importantly, it prevents you from performing actions you do not have permission to make.&lt;/p&gt;
+&lt;h2&gt;TrainingWall Authentication&lt;/h2&gt;
+&lt;p&gt;When looking at authentication, you’re immediately dealing with sensitive data, like it or not, it’s there so embrace it. Most of all, secure it. Thankfully &lt;strong&gt;Atlas&lt;/strong&gt; has one click, encryption at REST.&lt;/p&gt;
+&lt;h3&gt;Our data is secured at REST in the database but what are we going to do about passwords and in transit data?&lt;/h3&gt;
+&lt;p&gt;In transit data is secured using &lt;strong&gt;HTTPS&lt;/strong&gt; protocols as standard. We’ll get onto &lt;strong&gt;SSL&lt;/strong&gt; certificates for the server later.&lt;/p&gt;
+&lt;p&gt;Password management can present you with a world of hurt if your system is ever breached, and you notice, and the data is leaked. Encryption at REST is great but storing a plain text password in a database is tempting fate. No, no, no.&lt;/p&gt;
+&lt;p&gt;My favourite encryption package has to be &lt;strong&gt;Bcrypt&lt;/strong&gt; as I’ve found it so easy to work with and it hasn’t been cracked, yet.&lt;/p&gt;
+&lt;p&gt;The only frustrating problem I have encountered using &lt;strong&gt;Bcrypt&lt;/strong&gt; has been the speed of support for &lt;strong&gt;NodeJS&lt;/strong&gt; updates. This has caused me some pains, entirely due to my own error and poor use of &lt;strong&gt;Node version Manager (NVM)&lt;/strong&gt;. If you aren’t already using &lt;strong&gt;NVM&lt;/strong&gt; I highly suggest it.&lt;/p&gt;
+&lt;p&gt;Keeping packages locked to versions you have tested on QA is a crucial part of the development process, why not do the same for your server-side code? This also allows you to develop for different cloud service providers as they may support different &lt;strong&gt;NodeJS&lt;/strong&gt; versions and you can test them differently.&lt;/p&gt;
+&lt;p&gt;Back to &lt;strong&gt;Bcrypt&lt;/strong&gt;. What does it do?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bcrypt&lt;/strong&gt; uses an encryption algorithm and a salt to garble up and encrypt fields. The only field I’m worried about is the users password.&lt;/p&gt;
+&lt;p&gt;First the user signs up with a password, that password is then sent securely using HTTPS to my server. My server then uses &lt;strong&gt;Bcrypt&lt;/strong&gt; to securely hash the password and stores the hashed password in the database.&lt;/p&gt;
+&lt;h3&gt;How do users login after registration?&lt;/h3&gt;
+&lt;p&gt;After registration a registered user can authenticate by sending their email and password to the specified end-point over HTTPS. The password is then hashed again using &lt;strong&gt;Bcrypt&lt;/strong&gt;, if the hash matches the hash stored in the database, so do the passwords. This user is who they say they are, or at least they know the users password… woo! Two factor authentication is far more secure but is it really necessary for an app that doesn’t handle finance or much personal data?&lt;/p&gt;
+&lt;h2&gt;TrainingWall Authorization&lt;/h2&gt;
+&lt;h3&gt;Great, we can create users and authenticate now, why do we need authorization?&lt;/h3&gt;
+&lt;p&gt;Consider the following scenario.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;A salted duck egg is a Chinese preserved food product made by soaking duck
-eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-charcoal paste. The eggs may also be sold with the salted paste removed,
-wrapped in plastic, and vacuum packed. From the salt curing process, the
-salted duck eggs have a briny aroma, a gelatin-like egg white and a
-firm-textured, round yolk that is bright orange-red in color.&lt;/p&gt;
+&lt;p&gt;A center has one board, who should be able to change this boards details and how can we be sure they have permission? This is where authorization comes in.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;
-  &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/2b40c/salty_egg.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-  
-  &lt;span
-    class=&quot;gatsby-resp-image-wrapper&quot;
-    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
-  &gt;
-    &lt;span
-      class=&quot;gatsby-resp-image-background-image&quot;
-      style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEEBf/aAAwDAQACEAMQAAABgik0dXC//8QAGRABAAMBAQAAAAAAAAAAAAAAAQACEhEy/9oACAEBAAEFAkqW2DlnRj73yf/EABcRAQADAAAAAAAAAAAAAAAAAAAREkH/2gAIAQMBAT8B1WX/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQL/2gAIAQIBAT8Bi6f/xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIRISIxMv/aAAgBAQAGPwK9GNocyS8hCj//xAAbEAADAQADAQAAAAAAAAAAAAABESEAMUGBof/aAAgBAQABPyGxNMfrLHmCDZmAzzvJJDjEQCHv/9oADAMBAAIAAwAAABDIL//EABYRAQEBAAAAAAAAAAAAAAAAAAERAP/aAAgBAwEBPxARhylZv//EABgRAAIDAAAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EFoktI//xAAdEAEBAAICAwEAAAAAAAAAAAABEQAxIWFBcYHh/9oACAEBAAE/EEbMLQ0fMHDVaPIXyI4pk4JUnWacNCtO8ojDE9TGIYES7/Jn/9k=&apos;); background-size: cover; display: block;&quot;
-    &gt;
-      &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
-        alt=&quot;Chinese Salty Egg&quot;
-        title=&quot;&quot;
-        src=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/c739e/salty_egg.jpg&quot;
-        srcset=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/8ee9c/salty_egg.jpg 148w,
-/static/8058f3f26913fea3b6a89a73344fe94a/ebbe7/salty_egg.jpg 295w,
-/static/8058f3f26913fea3b6a89a73344fe94a/c739e/salty_egg.jpg 590w,
-/static/8058f3f26913fea3b6a89a73344fe94a/5413e/salty_egg.jpg 885w,
-/static/8058f3f26913fea3b6a89a73344fe94a/4efde/salty_egg.jpg 1180w,
-/static/8058f3f26913fea3b6a89a73344fe94a/abfc3/salty_egg.jpg 1770w,
-/static/8058f3f26913fea3b6a89a73344fe94a/2b40c/salty_egg.jpg 2048w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
-      /&gt;
-    &lt;/span&gt;
-  &lt;/span&gt;
-  
-  &lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
+&lt;p&gt;Editing a user, creating a route, editing a route, creating a board, editing a board, creating a center and editing a center are the main processes that require authorization in the &lt;strong&gt;TrainingWall&lt;/strong&gt; app.&lt;/p&gt;
+&lt;p&gt;I chose to use &lt;strong&gt;JWT’s&lt;/strong&gt; here as they work really well with the simple local &lt;code class=&quot;language-text&quot;&gt;key: value&lt;/code&gt; storage employed by &lt;strong&gt;React Native&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Contained within my &lt;strong&gt;JWT’s&lt;/strong&gt; are some user details. Their username, date of birth, permission level &lt;em&gt;i.e staff or not staff&lt;/em&gt; and their user id. The &lt;strong&gt;JWT&lt;/strong&gt; can be sent along with all requests but is only read and checked by restricted end points or restricted actions.&lt;/p&gt;
+&lt;p&gt;If a request is sent to an endpoint that is restricted and the users &lt;strong&gt;JWT&lt;/strong&gt; does not grant the required permission, the request stops before executing any code. It is rejected before running the business logic locked away behind authorization.&lt;/p&gt;
+&lt;h3&gt;There we have it, that’s how I handle user authentication and authorization for the TrainingWall.&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Next up:&lt;/strong&gt; &lt;em&gt;entersomethinghere&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[TrainingWall - The Tech Stack (front-end)]]></title><description><![CDATA[Lets discuss the front-end stack for TrainingWall! Fortunately us web developers have a few solid options when it comes to cross platform…]]></description><link>https://ajbosley.co.uk/trainingwall-the-tech-stack-part-two/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall-the-tech-stack-part-two/</guid><pubDate>Wed, 08 May 2019 19:40:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lets discuss the front-end stack for TrainingWall!&lt;/h2&gt;
+&lt;p&gt;Fortunately us web developers have a few solid options when it comes to cross platform mobile app development&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flutter - &lt;em&gt;Written in Dart&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Cordova - &lt;em&gt;WebView with access to native API’s&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Ionic&lt;/li&gt;
+&lt;li&gt;NativeScript&lt;/li&gt;
+&lt;li&gt;React Native&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;*I’ve included &lt;strong&gt;&lt;em&gt;Flutter&lt;/em&gt;&lt;/strong&gt; in the list as it is written in &lt;strong&gt;Dart&lt;/strong&gt; which has web development offerings for both client and server-side.*&lt;/p&gt;
+&lt;h2&gt;Let’s start with Flutter&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Flutter&lt;/strong&gt; is Google’s offering to cross platform app development, it’s fresh, fast and has a growing community.&lt;/p&gt;
+&lt;p&gt;Sadly I didn’t have the time to sink into this framework along with a new language, I was already learning a new style of development!&lt;/p&gt;
+&lt;p&gt;The growing community and the ever increasing set of re-usable widgets and the strong integration potential with &lt;strong&gt;Material Design&lt;/strong&gt; is leading &lt;strong&gt;Flutter&lt;/strong&gt; and Dart to continual growth and definitely leaves it in the running for this app. One day I’ll find the time!&lt;/p&gt;
+&lt;h2&gt;Cordova, Apache’s offering&lt;/h2&gt;
+&lt;p&gt;This nifty little framework boasts a vast array of plugins and an interesting architectural design. I really like how approachable this framework is as a web developer. Writing HTML, CSS and JS comes like second nature and in the modern age of mobile first development, once you’re past the initial set up you feel empowered to crack on.&lt;/p&gt;
+&lt;p&gt;Access to the camera, device location, orientation, file system and many other native API’s can be handled relatively painlessly with plugins from the community.&lt;/p&gt;
+&lt;h2&gt;Ionic&lt;/h2&gt;
+&lt;p&gt;I didn’t really investigate &lt;strong&gt;Ionic&lt;/strong&gt; as it doesn’t have quite the same sized community as some of the other frameworks and platforms in the list.&lt;/p&gt;
+&lt;h2&gt;NativeScript&lt;/h2&gt;
+&lt;p&gt;I also didn’t really dig into &lt;strong&gt;NativeScript&lt;/strong&gt; very deeply as, at the time, I was more interested in other technologies than &lt;strong&gt;Angular&lt;/strong&gt; for personal projects as I was using it for work.&lt;/p&gt;
+&lt;h2&gt;React Native&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;React Native&lt;/strong&gt; is Facebooks offering to cross platform applications. Since release in &lt;strong&gt;Feb 2015&lt;/strong&gt; over 75k GitHub stars have been awarded to &lt;strong&gt;React Native&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Community offerings and easy to use UI libraries were a big draw for me when building my first mobile offering, this left an easy choice… Not to mention I’ve worked with &lt;strong&gt;React&lt;/strong&gt; before which shrunk the learning curve a little.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Next up:&lt;/strong&gt; &lt;em&gt;Authentication and Authorization&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[TrainingWall - The Tech Stack (back-end)]]></title><description><![CDATA[In this post I’m going to cover the Tech Stack I chose as a back-end for my app, TrainingWall. When starting a new project, commercial or…]]></description><link>https://ajbosley.co.uk/trainingwall--the-tech-stack-part-one/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall--the-tech-stack-part-one/</guid><pubDate>Wed, 08 May 2019 17:24:00 GMT</pubDate><content:encoded>&lt;h2&gt;In this post I’m going to cover the Tech Stack I chose as a back-end for my app, TrainingWall.&lt;/h2&gt;
+&lt;p&gt;When starting a new project, commercial or personal, I’m always presented with the question:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What tech stack do I use for this?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sometimes it’s a very simple and easy question to answer, &lt;em&gt;”&lt;strong&gt;What you know best&lt;/strong&gt;”&lt;/em&gt; other times it can be a real challenge and the initial investment in architectural planning can put me off a project.&lt;/p&gt;
+&lt;p&gt;When working on my own personal projects I tend to be a bit more exploratory and implement technologies I’m not as familiar with. Do I value my personal time less than my work time, or is it just more fun to learn new things, new ways and at least attempt to keep up to date with the ever increasing pace of JavaScript and web development practices?&lt;/p&gt;
+&lt;p&gt;To answer this question I looked at the outcomes I want my backend to deliver.&lt;/p&gt;
+&lt;h2&gt;Requirements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;REST API - &lt;em&gt;Could easily, and probably will in the future, add a GraphQL layer.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Automated testing&lt;/li&gt;
+&lt;li&gt;Authentication&lt;/li&gt;
+&lt;li&gt;Authorization&lt;/li&gt;
+&lt;li&gt;Connects to a database&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That’s a very generic and rather rudimentary set of requirements right? But it gives a good start and besides, every app should be test-able!&lt;/p&gt;
+&lt;p&gt;I’ve almost exclusively worked with JavaScript since graduating university and love the language along with its incredible community of dedicated developers, so I chose &lt;strong&gt;NodeJS&lt;/strong&gt; to write the server, &lt;strong&gt;ExpressJS&lt;/strong&gt; to handle my API endpoints and routing, &lt;strong&gt;MongoDB&lt;/strong&gt; as my database and &lt;strong&gt;Mocha w Chai&lt;/strong&gt; as my testing framework.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NodeJS&lt;/strong&gt; is a very well supported platform with an incredible number of open source packages, everything from indenting your code to machine learning libraries. This incredible eco-system leaves you with a wealth of packages to choose from that can do pretty much anything, certainly an overwhelming quantity for any newbie. I chose to stick with &lt;strong&gt;v8.13.^&lt;/strong&gt; at the time of writing due to package support.&lt;/p&gt;
+&lt;h3&gt;Is it important to choose a long term support (LTS) version?&lt;/h3&gt;
+&lt;p&gt;Support for &lt;strong&gt;NodeJS&lt;/strong&gt; is similar to that of Linux, a distribution or release version is chosen, and scheduled, for &lt;em&gt;long term support&lt;/em&gt; and it therefore receives &lt;em&gt;long term support&lt;/em&gt; for packages included with the release version and larger packages tend to stick with this support cycle. I say tend to as some packages aren’t as well maintained as others. Keep in mind that a lot of packages are maintained by the community, people like you and I, just more generous!&lt;/p&gt;
+&lt;h3&gt;Now that I’ve chosen NodeJS, why did I choose ExpressJS over, say, Koa?&lt;/h3&gt;
+&lt;p&gt;Choosing &lt;strong&gt;Koa&lt;/strong&gt; may have been a smart choice if I was interested in following the state of JavaScripts surveys. They plug the average wage for &lt;strong&gt;Koa&lt;/strong&gt; developers as XYZ% higher than &lt;strong&gt;ExpressJS&lt;/strong&gt; devs, but life is not all about money. I could’ve spent my time learning &lt;strong&gt;Koa&lt;/strong&gt; or I could work towards delivering the project and my knowledge of &lt;strong&gt;ExpressJS&lt;/strong&gt; is greater. The efficiencies brought by &lt;strong&gt;Koa&lt;/strong&gt; aren’t needed for this application, the expected use is very low and not intensive.&lt;/p&gt;
+&lt;h3&gt;We have a server technology, and a set of HTTP utilities, why MongoDB?&lt;/h3&gt;
+&lt;p&gt;One of the biggest advantages I’ve found when using &lt;strong&gt;MongoDB&lt;/strong&gt; and &lt;strong&gt;Atlas&lt;/strong&gt; has got to be the incredible speed with which you can create schemas and adapt them to any use case, even halfway through development.&lt;/p&gt;
+&lt;p&gt;I put a large value on this factor when I’m building a prototype, schemas are likely to evolve during development, they’re also very likely to evolve once the first version releases to production! It takes a while to stabilise a database schema when you’re one man. &lt;em&gt;Nobody is faultless, we all overlook things.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Atlas&lt;/strong&gt; has a very good free tier that enables you to get up and running with a development and production database without any hassle.&lt;/p&gt;
+&lt;p&gt;Creating schemas for a &lt;em&gt;“schema-less database”&lt;/em&gt; seems odd, but it isn’t. It’s normal to want structure, that’s what a database is after all, a bunch of data points organised in a query-able and predictable manner.&lt;/p&gt;
+&lt;p&gt;I’ve worked with two different frameworks that apply schemas to &lt;strong&gt;MongoDB&lt;/strong&gt; databases, &lt;strong&gt;Mongoose&lt;/strong&gt; and &lt;strong&gt;LoopBack&lt;/strong&gt;. &lt;strong&gt;LoopBack&lt;/strong&gt;  is very opinionated in database and endpoint structuring that I wanted, it would’ve been a fine fit and the useful CLI tools would’ve made for faster development. &lt;strong&gt;LoopBack&lt;/strong&gt; is also built upon both &lt;strong&gt;Mongoose&lt;/strong&gt; and &lt;strong&gt;ExpressJS&lt;/strong&gt;, so I chose to work with the building blocks and apply my own opinions.&lt;/p&gt;
+&lt;h3&gt;This leaves the testing framework&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Mocha&lt;/strong&gt; is a very simple to read testing framework and has a variety of different extensions but most of all, it’s my favourite coffee related drink. The little things. &lt;/p&gt;
+&lt;p&gt;To clarify, I’m not a fan of &lt;strong&gt;Chai&lt;/strong&gt; in my coffee but I’m more than happy to use it for HTTP testing!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Next up:&lt;/strong&gt; &lt;em&gt;The Tech Stack (front-end)&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://ajbosley.co.uk/hi-folks/</link><guid isPermaLink="false">https://ajbosley.co.uk/hi-folks/</guid><pubDate>Thu, 28 May 2015 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
 right at the coast of the Semantics, a large language ocean. A small river named

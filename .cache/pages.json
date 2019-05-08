@@ -46,7 +46,17 @@
     },
     {
         "componentChunkName": "component---src-templates-blog-post-js",
-        "jsonName": "test-384",
-        "path": "/test/"
+        "jsonName": "trainingwall-the-tech-stack-part-one-36f",
+        "path": "/trainingwall--the-tech-stack-part-one/"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-post-js",
+        "jsonName": "trainingwall-authentication-and-authorization-08b",
+        "path": "/trainingwall-authentication-and-authorization/"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-post-js",
+        "jsonName": "trainingwall-the-tech-stack-part-two-449",
+        "path": "/trainingwall-the-tech-stack-part-two/"
     }
 ]
