@@ -84,18 +84,43 @@ class BlogCategories extends React.Component {
         <div className="blog-list-container">
           <div className="blog-filters">
             <div className="date-filter dropdown">
-              <div className="filter-title">
-                <h3>Date</h3>
-                {this.state.dateFilter && <div><span>ASC&nbsp;</span> <i className="fa fa-chevron-down" onClick={() => { this.changeDate(false) }}></i></div>}
-                {!this.state.dateFilter && <div><span>DESC&nbsp;</span> <i className="fa fa-chevron-up" onClick={() => { this.changeDate(true) }}></i></div>}
-              </div>
+              {
+                this.state.dateFilter &&
+                <div className="filter-title" onClick={() => { this.changeDate(false) }}>
+                  <h3>Date</h3>
+                  <div>
+                    <span>ASC&nbsp;</span>
+                    <i className="fa fa-chevron-down"></i>
+                  </div>
+                </div>
+              }
+              {
+                !this.state.dateFilter &&
+                <div className="filter-title" onClick={() => { this.changeDate(true) }}>
+                  <h3>Date</h3>
+                  <div>
+                    <span>DESC&nbsp;</span>
+                    <i className="fa fa-chevron-up"></i>
+                  </div>
+                </div>
+              }
             </div>
             <div className="category-filter dropdown">
-              <div className="filter-title">
-                <h3>Categories</h3>
-                {!this.state.openDropdown && <i className="fa fa-plus" onClick={() => this.setState({ openDropdown: true })}></i>}
-                {this.state.openDropdown && <i className="fa fa-minus" onClick={() => this.setState({ openDropdown: false })}></i>}
-              </div>
+
+              {
+                !this.state.openDropdown &&
+                <div className="filter-title" onClick={() => this.setState({ openDropdown: true })}>
+                  <h3>Categories</h3>
+                  <i className="fa fa-plus"></i>
+                </div>
+              }
+              {
+                this.state.openDropdown &&
+                <div className="filter-title" onClick={() => this.setState({ openDropdown: false })}>
+                  <h3>Categories</h3>
+                  <i className="fa fa-minus"></i>
+                </div>
+              }
               {
                 this.state.openDropdown &&
                 (<div className="category-filter-option">
