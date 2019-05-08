@@ -25,7 +25,7 @@ class BlogCategories extends React.Component {
 
   }
   changeCategory(category) {
-    this.setState({ categoryFilter: category }, () => { console.log(this.state.categoryFilter) });
+    this.setState({ categoryFilter: category });
     this.filterPostsByCategory(category);
   }
   changeDate(type) {
