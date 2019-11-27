@@ -1,12 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const post = this.props.data.markdownRemark;
+    const siteTitle = this.props.data.site.siteMetadata.title;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -16,18 +16,32 @@ class BlogPostTemplate extends React.Component {
         />
 
         <h1 className="blog-title h1-title">{post.frontmatter.title}</h1>
-        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
-        <h3 style={{ textAlign: "center" }}>Category:&nbsp;&nbsp;<span style={{ fontWeight: "lighter" }}>{post.frontmatter.category}</span></h3>
-        <p className="blog-post-content" style={{ textAlign: "center", fontSize: "10px !important", marginBottom: "50px !important" }}>
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+        <h3 style={{ textAlign: "center" }}>
+          Category:&nbsp;&nbsp;
+          <span style={{ fontWeight: "lighter" }}>
+            {post.frontmatter.category}
+          </span>
+        </h3>
+        <p
+          className="blog-post-content"
+          style={{
+            textAlign: "center",
+            fontSize: "10px !important",
+            marginBottom: "50px !important"
+          }}
+        >
           <strong>Posted on -</strong> {post.frontmatter.date}
         </p>
-
-      </Layout >
-    )
+      </Layout>
+    );
   }
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -44,9 +58,9 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-                category
+        category
         description
       }
     }
   }
-`
+`;

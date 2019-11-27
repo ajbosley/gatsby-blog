@@ -5,45 +5,45 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
 
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author } = data.site.siteMetadata
+        const { author } = data.site.siteMetadata;
         return (
-          <div className='bio'>
+          <div className="bio">
             <div>
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
                 alt={author}
                 style={{
                   marginBottom: 0,
-                  minWidth: '150px',
-                  minHeight: '150px',
+                  minWidth: "150px",
+                  minHeight: "150px",
                   borderRadius: `100%`,
-                  margin: '10px',
-                  maxHeight: '300px',
-                  maxWidth: '300px'
+                  margin: "10px",
+                  maxHeight: "300px",
+                  maxWidth: "300px"
                 }}
                 imgStyle={{
-                  borderRadius: `50%`,
+                  borderRadius: `50%`
                 }}
               />
-              <h2 style={{ textAlign: 'center' }}>
-                {author}
-              </h2>
-              <h3><i className="fa fa-map-marker"></i>&nbsp;&nbsp;Southampton </h3>
+              <h2 style={{ textAlign: "center" }}>{author}</h2>
+              <h3>
+                <i className="fa fa-map-marker"></i>&nbsp;&nbsp;Southampton{" "}
+              </h3>
             </div>
-          </div >
-        )
+          </div>
+        );
       }}
     />
-  )
+  );
 }
 
 const bioQuery = graphql`
@@ -61,6 +61,6 @@ const bioQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Bio
+export default Bio;
