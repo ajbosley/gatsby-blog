@@ -70,6 +70,7 @@ module.exports = {
       head:true
     },
   },
+    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
