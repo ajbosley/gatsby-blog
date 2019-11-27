@@ -3,6 +3,7 @@ title: TrainingWall - Authentication and Authorization
 date: "2019-05-08T20:40:00Z"
 category: "Security"
 tags: ["JWT","Bcrypt","Authorization","Authentication","Atlas","Encryption"]
+description: "After reading this far in the series, I haven't told you what my app is actually meant to do. Well, lets not spoil everything in one go!"
 ---
 
 ## After reading this far in the series, I haven't told you what my app is actually meant to do. Well, lets not spoil everything in one go!

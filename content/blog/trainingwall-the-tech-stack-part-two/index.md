@@ -3,6 +3,7 @@ title: TrainingWall - The Tech Stack (front-end)
 date: "2019-05-08T19:40:00Z"
 category: "Front-End"
 tags: ["React","React-Native"]
+description: "Lets discuss the front-end stack for TrainingWall!"
 ---
 
 ## Lets discuss the front-end stack for TrainingWall!

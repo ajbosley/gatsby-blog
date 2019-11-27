@@ -3,6 +3,7 @@ title: TrainingWall - The Tech Stack (back-end)
 date: "2019-05-08T17:24:00.456Z"
 category: "Back-End"
 tags: ["NodeJS","ExpressJS","MongoDB","Mocha","Chai"]
+description: "In this post I'm going to cover the Tech Stack I chose as a back-end for my app, TrainingWall."
 ---
 
 ## In this post I'm going to cover the Tech Stack I chose as a back-end for my app, TrainingWall.
