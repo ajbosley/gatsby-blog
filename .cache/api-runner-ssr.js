@@ -3,7 +3,7 @@ var plugins = [{
       options: {"plugins":[],"name":"Aaron Bosley","short_name":"A.Bosley","start_url":"/","background_color":"#bdbdbd","theme_color":"#ab47bc","display":"standalone","icon":"static/download.png"},
     },{
       plugin: require('/home/aaron/aaron-dev/gatsby-blog/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
-      options: {"plugins":[],"trackingId":"UA-120520318-1"},
+      options: {"plugins":[],"trackingId":"UA-120520318-1","head":true},
     },{
       plugin: require('/home/aaron/aaron-dev/gatsby-blog/node_modules/gatsby-plugin-feed/gatsby-ssr'),
       options: {"plugins":[]},

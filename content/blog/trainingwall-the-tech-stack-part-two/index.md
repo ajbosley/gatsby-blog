@@ -45,5 +45,3 @@ I also didn't really dig into **NativeScript** very deeply as, at the time, I wa
 **React Native** is Facebooks offering to cross platform applications. Since release in **Feb 2015** over 75k GitHub stars have been awarded to **React Native**.
 
 Community offerings and easy to use UI libraries were a big draw for me when building my first mobile offering, this left an easy choice... Not to mention I've worked with **React** before which shrunk the learning curve a little.
-
-**Next up:** *Authentication and Authorization*

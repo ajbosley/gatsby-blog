@@ -68,4 +68,3 @@ If a request is sent to an endpoint that is restricted and the users **JWT** doe
 
 ### There we have it, that's how I handle user authentication and authorization for the TrainingWall.
 
-**Next up:** *entersomethinghere*

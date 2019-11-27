@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Aaron Bosley]]></title><description><![CDATA[My life as an outdoorsy developer, blogged.]]></description><link>https://ajbosley.co.uk</link><generator>RSS for Node</generator><lastBuildDate>Wed, 08 May 2019 20:57:22 GMT</lastBuildDate><item><title><![CDATA[TrainingWall - Authentication and Authorization]]></title><description><![CDATA[After reading this far in the series, I haven’t told you what my app is actually meant to do. Well, lets not spoil everything in one go! The…]]></description><link>https://ajbosley.co.uk/trainingwall-authentication-and-authorization/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall-authentication-and-authorization/</guid><pubDate>Wed, 08 May 2019 20:40:00 GMT</pubDate><content:encoded>&lt;h2&gt;After reading this far in the series, I haven’t told you what my app is actually meant to do. Well, lets not spoil everything in one go!&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Aaron Bosley]]></title><description><![CDATA[My life as an outdoorsy developer, blogged.]]></description><link>https://ajbosley.co.uk</link><generator>RSS for Node</generator><lastBuildDate>Wed, 27 Nov 2019 16:04:48 GMT</lastBuildDate><item><title><![CDATA[TrainingWall - Authentication and Authorization]]></title><description><![CDATA[After reading this far in the series, I haven’t told you what my app is actually meant to do. Well, lets not spoil everything in one go! The…]]></description><link>https://ajbosley.co.uk/trainingwall-authentication-and-authorization/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall-authentication-and-authorization/</guid><pubDate>Wed, 08 May 2019 20:40:00 GMT</pubDate><content:encoded>&lt;h2&gt;After reading this far in the series, I haven’t told you what my app is actually meant to do. Well, lets not spoil everything in one go!&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;TrainingWall&lt;/strong&gt; app covers, in its current form, one main use case. Creating routes on rock climbing training boards irrespective of board shape, size and design. If you can photograph it, you can create routes for it.&lt;/p&gt;
 &lt;p&gt;A climbing center can have many boards, each board can have many routes. Routes are created by users, anonymous or registered.&lt;/p&gt;
 &lt;p&gt;This design leads way for three different types of user:&lt;/p&gt;
@@ -33,8 +33,7 @@
 &lt;p&gt;I chose to use &lt;strong&gt;JWT’s&lt;/strong&gt; here as they work really well with the simple local &lt;code class=&quot;language-text&quot;&gt;key: value&lt;/code&gt; storage employed by &lt;strong&gt;React Native&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Contained within my &lt;strong&gt;JWT’s&lt;/strong&gt; are some user details. Their username, date of birth, permission level &lt;em&gt;i.e staff or not staff&lt;/em&gt; and their user id. The &lt;strong&gt;JWT&lt;/strong&gt; can be sent along with all requests but is only read and checked by restricted end points or restricted actions.&lt;/p&gt;
 &lt;p&gt;If a request is sent to an endpoint that is restricted and the users &lt;strong&gt;JWT&lt;/strong&gt; does not grant the required permission, the request stops before executing any code. It is rejected before running the business logic locked away behind authorization.&lt;/p&gt;
-&lt;h3&gt;There we have it, that’s how I handle user authentication and authorization for the TrainingWall.&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Next up:&lt;/strong&gt; &lt;em&gt;entersomethinghere&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[TrainingWall - The Tech Stack (front-end)]]></title><description><![CDATA[Lets discuss the front-end stack for TrainingWall! Fortunately us web developers have a few solid options when it comes to cross platform…]]></description><link>https://ajbosley.co.uk/trainingwall-the-tech-stack-part-two/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall-the-tech-stack-part-two/</guid><pubDate>Wed, 08 May 2019 19:40:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lets discuss the front-end stack for TrainingWall!&lt;/h2&gt;
+&lt;h3&gt;There we have it, that’s how I handle user authentication and authorization for the TrainingWall.&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[TrainingWall - The Tech Stack (front-end)]]></title><description><![CDATA[Lets discuss the front-end stack for TrainingWall! Fortunately us web developers have a few solid options when it comes to cross platform…]]></description><link>https://ajbosley.co.uk/trainingwall-the-tech-stack-part-two/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall-the-tech-stack-part-two/</guid><pubDate>Wed, 08 May 2019 19:40:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lets discuss the front-end stack for TrainingWall!&lt;/h2&gt;
 &lt;p&gt;Fortunately us web developers have a few solid options when it comes to cross platform mobile app development&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Flutter - &lt;em&gt;Written in Dart&lt;/em&gt;&lt;/li&gt;
@@ -57,8 +56,7 @@
 &lt;p&gt;I also didn’t really dig into &lt;strong&gt;NativeScript&lt;/strong&gt; very deeply as, at the time, I was more interested in other technologies than &lt;strong&gt;Angular&lt;/strong&gt; for personal projects as I was using it for work.&lt;/p&gt;
 &lt;h2&gt;React Native&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;React Native&lt;/strong&gt; is Facebooks offering to cross platform applications. Since release in &lt;strong&gt;Feb 2015&lt;/strong&gt; over 75k GitHub stars have been awarded to &lt;strong&gt;React Native&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Community offerings and easy to use UI libraries were a big draw for me when building my first mobile offering, this left an easy choice… Not to mention I’ve worked with &lt;strong&gt;React&lt;/strong&gt; before which shrunk the learning curve a little.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Next up:&lt;/strong&gt; &lt;em&gt;Authentication and Authorization&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[TrainingWall - The Tech Stack (back-end)]]></title><description><![CDATA[In this post I’m going to cover the Tech Stack I chose as a back-end for my app, TrainingWall. When starting a new project, commercial or…]]></description><link>https://ajbosley.co.uk/trainingwall--the-tech-stack-part-one/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall--the-tech-stack-part-one/</guid><pubDate>Wed, 08 May 2019 17:24:00 GMT</pubDate><content:encoded>&lt;h2&gt;In this post I’m going to cover the Tech Stack I chose as a back-end for my app, TrainingWall.&lt;/h2&gt;
+&lt;p&gt;Community offerings and easy to use UI libraries were a big draw for me when building my first mobile offering, this left an easy choice… Not to mention I’ve worked with &lt;strong&gt;React&lt;/strong&gt; before which shrunk the learning curve a little.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[TrainingWall - The Tech Stack (back-end)]]></title><description><![CDATA[In this post I’m going to cover the Tech Stack I chose as a back-end for my app, TrainingWall. When starting a new project, commercial or…]]></description><link>https://ajbosley.co.uk/trainingwall--the-tech-stack-part-one/</link><guid isPermaLink="false">https://ajbosley.co.uk/trainingwall--the-tech-stack-part-one/</guid><pubDate>Wed, 08 May 2019 17:24:00 GMT</pubDate><content:encoded>&lt;h2&gt;In this post I’m going to cover the Tech Stack I chose as a back-end for my app, TrainingWall.&lt;/h2&gt;
 &lt;p&gt;When starting a new project, commercial or personal, I’m always presented with the question:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;What tech stack do I use for this?&lt;/p&gt;
@@ -89,153 +87,4 @@
 &lt;p&gt;I’ve worked with two different frameworks that apply schemas to &lt;strong&gt;MongoDB&lt;/strong&gt; databases, &lt;strong&gt;Mongoose&lt;/strong&gt; and &lt;strong&gt;LoopBack&lt;/strong&gt;. &lt;strong&gt;LoopBack&lt;/strong&gt;  is very opinionated in database and endpoint structuring that I wanted, it would’ve been a fine fit and the useful CLI tools would’ve made for faster development. &lt;strong&gt;LoopBack&lt;/strong&gt; is also built upon both &lt;strong&gt;Mongoose&lt;/strong&gt; and &lt;strong&gt;ExpressJS&lt;/strong&gt;, so I chose to work with the building blocks and apply my own opinions.&lt;/p&gt;
 &lt;h3&gt;This leaves the testing framework&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Mocha&lt;/strong&gt; is a very simple to read testing framework and has a variety of different extensions but most of all, it’s my favourite coffee related drink. The little things. &lt;/p&gt;
-&lt;p&gt;To clarify, I’m not a fan of &lt;strong&gt;Chai&lt;/strong&gt; in my coffee but I’m more than happy to use it for HTTP testing!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Next up:&lt;/strong&gt; &lt;em&gt;The Tech Stack (front-end)&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://ajbosley.co.uk/hi-folks/</link><guid isPermaLink="false">https://ajbosley.co.uk/hi-folks/</guid><pubDate>Thu, 28 May 2015 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.&lt;/p&gt;
-&lt;h2&gt;On deer horse aboard tritely yikes and much&lt;/h2&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;This however showed weasel&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Well uncritical so misled&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;this is very interesting&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Goodness much until that fluid owl&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;When she reached the first hills of the &lt;strong&gt;Italic Mountains&lt;/strong&gt;, she had a last
-view back on the skyline of her hometown &lt;em&gt;Bookmarksgrove&lt;/em&gt;, the headline of
-&lt;a href=&quot;http://google.com&quot;&gt;Alphabet Village&lt;/a&gt; and the subline of her own road, the Line
-Lane. Pityful a rethoric question ran over her cheek, then she continued her
-way. On her way she met a copy.&lt;/p&gt;
-&lt;h3&gt;Overlaid the jeepers uselessly much excluding&lt;/h3&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-&lt;a href=&quot;http://google.com&quot;&gt;Longe and Parole&lt;/a&gt; and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.&lt;/p&gt;
-&lt;h3&gt;According a funnily until pre-set or arrogant well cheerful&lt;/h3&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;So baboon this&lt;/li&gt;
-&lt;li&gt;Mounted militant weasel gregariously admonishingly straightly hey&lt;/li&gt;
-&lt;li&gt;Dear foresaw hungry and much some overhung&lt;/li&gt;
-&lt;li&gt;Rash opossum less because less some amid besides yikes jeepers frenetic
-impassive fruitlessly shut&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rethoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and
-return to its own, safe country.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.&lt;/p&gt;
-&lt;h4&gt;Silent delightfully including because before one up barring chameleon&lt;/h4&gt;
-&lt;p&gt;Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.&lt;/p&gt;
-&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.&lt;/p&gt;
-&lt;h5&gt;Wherever far wow thus a squirrel raccoon jeez jaguar this from along&lt;/h5&gt;
-&lt;p&gt;She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rethoric question ran over her cheek, then she continued her way. On her way she
-met a copy.&lt;/p&gt;
-&lt;h6&gt;Slapped cozy a that lightheartedly and far&lt;/h6&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Second Post!]]></title><description><![CDATA[Wow! I love blogging so much already. Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the…]]></description><link>https://ajbosley.co.uk/my-second-post/</link><guid isPermaLink="false">https://ajbosley.co.uk/my-second-post/</guid><pubDate>Wed, 06 May 2015 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Wow! I love blogging so much already.&lt;/p&gt;
-&lt;p&gt;Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich.”?
-(&lt;a href=&quot;http://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;Wikipedia Link&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Yeah, I didn’t either.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://ajbosley.co.uk/hello-world/</link><guid isPermaLink="false">https://ajbosley.co.uk/hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
-&lt;p&gt;I’m sure I’ll write a lot more interesting things in the future.&lt;/p&gt;
-&lt;p&gt;Oh, and here’s a great quote from this Wikipedia on
-&lt;a href=&quot;http://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;salted duck eggs&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A salted duck egg is a Chinese preserved food product made by soaking duck
-eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-charcoal paste. The eggs may also be sold with the salted paste removed,
-wrapped in plastic, and vacuum packed. From the salt curing process, the
-salted duck eggs have a briny aroma, a gelatin-like egg white and a
-firm-textured, round yolk that is bright orange-red in color.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;
-  &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/2b40c/salty_egg.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-  
-  &lt;span
-    class=&quot;gatsby-resp-image-wrapper&quot;
-    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
-  &gt;
-    &lt;span
-      class=&quot;gatsby-resp-image-background-image&quot;
-      style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEEBf/aAAwDAQACEAMQAAABgik0dXC//8QAGRABAAMBAQAAAAAAAAAAAAAAAQACEhEy/9oACAEBAAEFAkqW2DlnRj73yf/EABcRAQADAAAAAAAAAAAAAAAAAAAREkH/2gAIAQMBAT8B1WX/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQL/2gAIAQIBAT8Bi6f/xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIRISIxMv/aAAgBAQAGPwK9GNocyS8hCj//xAAbEAADAQADAQAAAAAAAAAAAAABESEAMUGBof/aAAgBAQABPyGxNMfrLHmCDZmAzzvJJDjEQCHv/9oADAMBAAIAAwAAABDIL//EABYRAQEBAAAAAAAAAAAAAAAAAAERAP/aAAgBAwEBPxARhylZv//EABgRAAIDAAAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EFoktI//xAAdEAEBAAICAwEAAAAAAAAAAAABEQAxIWFBcYHh/9oACAEBAAE/EEbMLQ0fMHDVaPIXyI4pk4JUnWacNCtO8ojDE9TGIYES7/Jn/9k=&apos;); background-size: cover; display: block;&quot;
-    &gt;
-      &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
-        alt=&quot;Chinese Salty Egg&quot;
-        title=&quot;&quot;
-        src=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/c739e/salty_egg.jpg&quot;
-        srcset=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/8ee9c/salty_egg.jpg 148w,
-/static/8058f3f26913fea3b6a89a73344fe94a/ebbe7/salty_egg.jpg 295w,
-/static/8058f3f26913fea3b6a89a73344fe94a/c739e/salty_egg.jpg 590w,
-/static/8058f3f26913fea3b6a89a73344fe94a/5413e/salty_egg.jpg 885w,
-/static/8058f3f26913fea3b6a89a73344fe94a/4efde/salty_egg.jpg 1180w,
-/static/8058f3f26913fea3b6a89a73344fe94a/abfc3/salty_egg.jpg 1770w,
-/static/8058f3f26913fea3b6a89a73344fe94a/2b40c/salty_egg.jpg 2048w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
-      /&gt;
-    &lt;/span&gt;
-  &lt;/span&gt;
-  
-  &lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;To clarify, I’m not a fan of &lt;strong&gt;Chai&lt;/strong&gt; in my coffee but I’m more than happy to use it for HTTP testing!&lt;/p&gt;</content:encoded></item></channel></rss>

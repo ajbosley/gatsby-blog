@@ -57,5 +57,3 @@ I've worked with two different frameworks that apply schemas to **MongoDB** data
 **Mocha** is a very simple to read testing framework and has a variety of different extensions but most of all, it's my favourite coffee related drink. The little things. 
 
 To clarify, I'm not a fan of **Chai** in my coffee but I'm more than happy to use it for HTTP testing!
-
-**Next up:** *The Tech Stack (front-end)*
