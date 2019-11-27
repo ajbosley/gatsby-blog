@@ -198,6 +198,7 @@ body {
     margin-left: 15%;
     margin-top: 80px;
     background-color: var(--main-grey-light-bg);
+    min-height: 100%;
 }
 
 .bio {
@@ -218,13 +219,14 @@ body {
     max-width: 22.5%;
     margin: 2.5%;
     display: inline-flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     text-align: center;
     overflow: none;
     padding: 2.5%;
     box-shadow: 0px 0px 5px 1px var(--main-grey-bg);
+    min-height:250px;
 }
 
 .home-blog-post:hover {

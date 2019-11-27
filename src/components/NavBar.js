@@ -35,10 +35,10 @@ export default class NavBar extends Component {
             <a className="nav-item large-screen" href="#contact">
               Contact
             </a>
-            <a className="nav-item large-screen" href="./blog">
+            <a className="nav-item large-screen" href="/blog">
               Blog
             </a>
-            <a className="nav-item large-screen" href="./resume">
+            <a className="nav-item large-screen" href="/resume">
               Resume
             </a>
             <div
