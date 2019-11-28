@@ -227,6 +227,7 @@ body {
     padding: 2.5%;
     box-shadow: 0px 0px 5px 1px var(--main-grey-bg);
     min-height:250px;
+    min-width: 20%;
 }
 
 .home-blog-post:hover {

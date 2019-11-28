@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "gatsby";
 
 export default class NavBar extends Component {
   constructor() {
@@ -24,23 +25,23 @@ export default class NavBar extends Component {
       <div>
         <div className="nav-bar">
           <div className="nav-main">
-            <a href="/" className="large-screen">
+            <Link to="/" className="large-screen">
               <h1>Aaron Bosley</h1>
-            </a>
-            <a href="/" className="small-screen">
+            </Link>
+            <Link to="/" className="small-screen">
               <h1 style={{ fontSize: "24px" }}>A.Bosley</h1>
-            </a>
+            </Link>
           </div>
           <div className="nav-item-container">
-            <a className="nav-item large-screen" href="#contact">
+            <Link className="nav-item large-screen" to="#contact">
               Contact
-            </a>
-            <a className="nav-item large-screen" href="/blog">
+            </Link>
+            <Link className="nav-item large-screen" to="/blog">
               Blog
-            </a>
-            <a className="nav-item large-screen" href="/resume">
+            </Link>
+            <Link className="nav-item large-screen" to="/resume">
               Resume
-            </a>
+            </Link>
             <div
               className="nav-item small-screen"
               onClick={() => {
@@ -65,15 +66,15 @@ export default class NavBar extends Component {
             ></div>
             <div className="nav-side-content-container">
               <div className="nav-side-content">
-                <a className="side-item" href="#contact">
+                <Link className="side-item" to="#contact">
                   Contact
-                </a>
-                <a className="side-item" href="/blog">
+                </Link>
+                <Link className="side-item" to="/blog">
                   Blog
-                </a>
-                <a className="side-item" href="/resume">
+                </Link>
+                <Link className="side-item" to="/resume">
                   Resume
-                </a>
+                </Link>
               </div>
             </div>
           </div>
