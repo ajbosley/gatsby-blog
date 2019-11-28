@@ -58,7 +58,7 @@ class Resume extends React.Component {
             <h2>Previous Experience</h2>
 
             <h4>
-              Junior Full Stack Developer - Consortiq (June 2018 - Present){" "}
+              Full Stack Developer - Consortiq (June 2018 - Present){" "}
             </h4>
             <ul>
               <li>UI/UX Design and optimization.</li>
