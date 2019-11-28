@@ -33,9 +33,9 @@ npm install --save netlify-cms-app gatsby-plugin-netlify-cms
 
 Next we need to create the **config.yaml** in a new sub-directory, **admin** of **static.**
 
-├── static \
-│   ├── admin\
-│   │   ├── config.yml
+── static \
+   ├── admin\
+   │   ├── config.yml
 
 Setting up the **config** is really straight forward, if you're a **python** fan, this'll feel more intuitive to you. Urgh, indentation matters.
 
@@ -43,23 +43,7 @@ Setting up the **config** is really straight forward, if you're a **python** fan
 
 Here's my **config.yml** for my blog post collection:
 
-```
-collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
-    create: true
-    slug: "{{slug}}"
-    editor:
-     preview: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Category", name: "category", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "list" }
-```
+![config.yml file for blog post collection](/img/config-yml.png "config.yml file")
 
 The only interesting point worth making on the **widgets** I have used here would be the use of **lists.** I wanted to start this blog with the ability to filter for different tech, interests or general talking points. For this I decided to add **Tags** to each blog post, so far there aren't enough blog posts to warrant this sort of filtering, hopefully I'll get more active as time goes by! But climbing, surfing and general van life keeps getting in the way.
 
