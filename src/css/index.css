@@ -320,6 +320,10 @@ body {
     max-width: 90%;
 }
 
+div.blog-post-content p img {
+    max-width: 100%;
+}
+
 .blog-title {
     text-align: center;
     padding-bottom: 20px;
