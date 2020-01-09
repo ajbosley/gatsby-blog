@@ -57,9 +57,7 @@ class Resume extends React.Component {
             </div>
             <h2>Previous Experience</h2>
 
-            <h4>
-              Full Stack Developer - Consortiq (June 2018 - Present){" "}
-            </h4>
+            <h4>Full Stack Developer - Consortiq (June 2018 - Present) </h4>
             <ul>
               <li>UI/UX Design and optimization.</li>
               <li>Introduced tracking across all web apps.</li>
@@ -98,24 +96,15 @@ class Resume extends React.Component {
                 pipelines and discuss potential new products.
               </li>
               <li>
-                Track errors, bugs and issues using{" "}
+                Track errors, bugs and issues using&nbsp;
                 <a style={{ fontWeight: "bold" }} href="https://sentry.io">
                   Sentry.io
                 </a>
               </li>
               <li>
-                Adapted a Wordpress design to create{" "}
+                Adapted a Wordpress design to create&nbsp;
                 <a style={{ fontWeight: "bold" }} href="http://www.cqnet.io">
-                  CQnet.io
-                </a>
-              </li>
-              <li>
-                Designed and built{" "}
-                <a
-                  style={{ fontWeight: "bold" }}
-                  href="http://www.consortiq-solutions.com"
-                >
-                  consortiq-solutions.com
+                  CQNet.io
                 </a>
               </li>
               <li>
@@ -202,7 +191,7 @@ class Resume extends React.Component {
               <li>
                 As the principal face of the club, I took care to welcome new
                 members, through speaking and organising events such as; the
-                Fresher’s Presentation, the AGM and created the climbing Varsity
+                Fresher’s Presentation, the AGM and created the climbing varsity
                 competition.
               </li>
             </ul>

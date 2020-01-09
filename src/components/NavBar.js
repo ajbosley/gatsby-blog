@@ -26,10 +26,10 @@ export default class NavBar extends Component {
         <div className="nav-bar">
           <div className="nav-main">
             <Link to="/" className="large-screen">
-              <h1>Aaron Bosley</h1>
+              <h1 style={{ color: "#fafafa" }}>A.Bosley</h1>
             </Link>
             <Link to="/" className="small-screen">
-              <h1 style={{ fontSize: "24px" }}>A.Bosley</h1>
+              <h1 style={{ fontSize: "24px", color: "#fafafa" }}>A.Bosley</h1>
             </Link>
           </div>
           <div className="nav-item-container">
